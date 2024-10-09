@@ -1,11 +1,14 @@
+// Ethan Saenz and Isaiah Corrales
+// Java Program 2
+// To Do List App
+
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.*;
 import javax.swing.*;
 
-
 public class App {
-
     public static void main(String[] args){
 
         // Create the main frame using border layout.
@@ -39,8 +42,6 @@ public class App {
 
         // Creating a JList to store tasks.
         DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("Fold Laundry");
-        model.addElement("Wash Dishes");
         JList<String> taskList = new JList<>(model);
         JScrollPane scrollPane = new JScrollPane(taskList);
         frame.add(scrollPane, BorderLayout.CENTER);
@@ -86,7 +87,11 @@ public class App {
                 int selectedIndex = taskList.getSelectedIndex();
                 // If index is valid highlight it.
                 if(selectedIndex != -1){
-                    // Highlight the task that is completed.
+                    // Checkmark the task that is completed.
+                    String temp = model.get(selectedIndex);
+                    temp = temp + " ✅";
+                    model.remove(selectedIndex);
+                    model.insertElementAt(temp, selectedIndex);
                 }
                 else{
                     //Popup pop = PopupFactory.getSharedInstance().getPopup(frame, new JLabel("There is no task to add, please add a task in the field above."), 50, 100);
@@ -94,7 +99,6 @@ public class App {
                 }
             }
         });
-
 
         // Making frame visible.
         frame.setVisible(true);
