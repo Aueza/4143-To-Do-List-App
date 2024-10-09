@@ -14,7 +14,7 @@ public class App {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new java.awt.BorderLayout());
 
-        // Create a label
+        // Create a label.
         // JLabel label =  new JLabel("Hello, welcome!");
         // frame.add(label);
 
@@ -37,10 +37,10 @@ public class App {
         JTextField textField = new JTextField("Enter tasks here");
         frame.add(textField, BorderLayout.NORTH);
 
-        // Creating a JList to store tasks
+        // Creating a JList to store tasks.
         DefaultListModel<String> model = new DefaultListModel<>();
-        model.addElement("one");
-        model.addElement("two");
+        model.addElement("Fold Laundry");
+        model.addElement("Wash Dishes");
         JList<String> taskList = new JList<>(model);
         JScrollPane scrollPane = new JScrollPane(taskList);
         frame.add(scrollPane, BorderLayout.CENTER);
@@ -78,12 +78,13 @@ public class App {
                 }
             }
         });
+        // Adding action listener for markComplete button.
         markComplete.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent a){
-                // Getting index of selected task
+                // Getting index of selected task.
                 int selectedIndex = taskList.getSelectedIndex();
-                // If index is valid remove it.
+                // If index is valid highlight it.
                 if(selectedIndex != -1){
                     // Highlight the task that is completed.
                 }
